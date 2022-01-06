@@ -35,3 +35,145 @@ var 부모 = { name: "Kim", age: 50 };
 var 자식 = Object.create(부모);
 
 console.log(자식.age); //50나옴
+
+//extends
+class grand {
+  constructor(name) {
+    this.first = "kim";
+    this.last = name;
+  }
+}
+
+class father extends grand {
+  constructor(name) {
+    super(name);
+    // 상속받는 부모의 consturctor을 가져온다 생각
+    // 부모의 파라미터 그대로 넣어준다. (super에도)
+    // constructor(name) {
+    //   this.first = "kim";
+    //   this.last = name;
+    this.age = 59;
+  }
+}
+
+let father1 = new father("영수");
+console.log(father1);
+
+//setter
+let 사람 = {
+  age: 14,
+  get nextAge() {
+    return this.age + 1;
+  },
+};
+
+console.log(사람.nextAge);
+
+//get, set
+class man {
+  constructor() {
+    this.name = "kim";
+    this.age = 20;
+  }
+  get nextAge1() {
+    return this.age + 1;
+  }
+  set setAge(age1) {
+    this.age = age1;
+  }
+}
+
+let man1 = new man();
+man1.setAge = 50;
+console.log(man1);
+
+//getter,setter
+
+class dog {
+  constructor(a, b) {
+    this.type = a;
+    this.color = b;
+  }
+  sayHello() {
+    console.log("안녕 나는 개");
+  }
+  // get 한살먹기() {
+  //   if (this.age > 0) {
+  //     return this.age + 1;
+  //   } else {
+  //     console.log(error);
+  //   }
+  get 한살먹기() {
+    if (this instanceof cat) {
+      this.age++;
+    }
+  }
+}
+
+let dog1 = new dog("말티즈", "white");
+let dog2 = new dog("진돗개", "brown");
+// console.log(dog1.한살먹기);
+
+class cat extends dog {
+  constructor(a, b, c) {
+    super(a, b);
+    this.age = c;
+  }
+  sayHello2() {
+    console.log("안녕 나는 고양이");
+    super.sayHello();
+  }
+}
+
+let cat1 = new cat("코숏", "whtie", 7);
+let cat2 = new cat("코숏", "whtie", 5);
+console.log(cat1.한살먹기);
+
+//
+class Unit {
+  constructor() {
+    this.공격력 = 5;
+    this.체력 = 100;
+  }
+  get battlePoint() {
+    return this.공격력 + this.체력;
+  }
+  set heal(a) {
+    this.체력 += a;
+  }
+}
+
+let Unit2 = new Unit();
+
+console.log(Unit2.battlePoint);
+Unit2.heal = 500;
+console.log(Unit2);
+
+//getset2
+let data2 = {
+  odd: [],
+  even: [],
+  setData: function (...x) {
+    x.forEach((a) => {
+      if (a % 2 == 1) {
+        this.odd.push(a);
+      } else {
+        this.even.push(a);
+      }
+    });
+  },
+  // set setData (...a) {
+  //   a.forEach ((x) => {
+  //     if(a%2 ==1) {
+  //       this.odd.push(x)
+  //     } else {
+  //       this.even.push(x)
+  //     }
+  //   })
+  get getData2() {
+    return [...this.odd, ...this.even].sort();
+  },
+};
+
+data2.setData(1, 2, 3, 4);
+console.log(data2.getData2);
