@@ -177,3 +177,25 @@ let data2 = {
 
 data2.setData(1, 2, 3, 4);
 console.log(data2.getData2);
+
+let 오브젝트 = { name: "kim", age: 30 };
+
+//for~in
+// enumerable 한것만 반복한다.
+for (let key in 오브젝트) {
+  console.log(오브젝트);
+}
+
+console.log(Object.getOwnPropertyDescriptor(오브젝트, "name"));
+
+//for~in prototype
+class 부모1 {}
+
+부모1.prototype.name = "kim";
+
+let 오브젝트1 = new 부모1();
+
+for (let key in 오브젝트1) {
+  if()
+  console.log(오브젝트1[key]);
+}
