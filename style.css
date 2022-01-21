@@ -13,3 +13,7 @@ h1 {
 .sexyfont {
   color: red;
 }
+
+.hidden {
+  display: none;
+}

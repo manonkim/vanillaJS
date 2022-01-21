@@ -20,9 +20,13 @@ const superEventHandler = {
 };
 
 title.addEventListener("mouseenter", superEventHandler.Over);
+title.onmouseenter = superEventHandler.Over;
 
 title.addEventListener("mouseleave", superEventHandler.Gone);
+title.onmouseleave = superEventHandler.Gone;
 
 window.addEventListener("resize", superEventHandler.ChangeWindow);
+window.onresize = superEventHandler.ChangeWindow;
 
 window.addEventListener("contextmenu", superEventHandler.Click);
+title.onclick = superEventHandler.Click;
