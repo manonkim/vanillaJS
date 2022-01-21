@@ -9,12 +9,12 @@ const inputHandler = (event) => {
   const username = loginInput.value;
   loginForm.classList.add("hidden");
   console.log(username);
-  // const value = loginInput1.value;
-  // if (value === "") {
-  //   alert("please write your name");
-  // } else if (value.length > 15) {
-  //   alert("long~");
-  // }
+  const value = loginInput1.value;
+  if (value === "") {
+    alert("please write your name");
+  } else if (value.length > 15) {
+    alert("long~");
+  }
 };
 
 loginForm.addEventListener("submit", inputHandler);
